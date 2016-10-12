@@ -1,11 +1,11 @@
 <div class="product_list">
     <div id="input_container" class="col-sm-12">
-        <input class="form-control" type="text" class="form-control" ng-change="checkFilterLength(productSearch)" ng-model="productSearch">
+        <input class="form-control" type="text" class="form-control" ng-change="doFilter(productSearch)" ng-model="productSearch">
         <div ng-if="productSearch" ng-click="clearFilter()" class="glyphicon glyphicon-remove input_button" aria-hidden="true"></div>
     </div>
     <div class="results_container col-xs-12">
       <ul>
-          <li class="col-sm-4" ng-class="{'col-sm-12': !quantity}" ng-repeat="product in products | filter: productSearch | limitTo: quantity">
+          <li class="col-sm-4" ng-class="{'col-sm-12': !quantity}" ng-repeat="product in products | limitTo: quantity">
             <a ng-href="{{product.url}}">
               <div class="x_panel" ng-class="{'list': !quantity}">
                 <div class="x_title">
